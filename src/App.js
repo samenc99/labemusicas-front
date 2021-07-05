@@ -1,7 +1,8 @@
+import {Routes} from "./Routes/Routes";
 
 function App() {
   return (
-    <div>app</div>
+    <Routes/>
   );
 }
 
