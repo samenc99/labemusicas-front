@@ -4,9 +4,7 @@ const SIGNUP = '/signup'
 const LOGIN = '/login'
 const FEED = '/'
 
-export const useCoordinator = () : {
-  toSignup : any, toLogin : any, toFeed : any
-}=> {
+export const useCoordinator = () => {
   const history = useHistory()
 
   const toSignup = ()=> history.push(SIGNUP)

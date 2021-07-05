@@ -5,6 +5,8 @@ import {Button} from "../components/Button";
 import useForm from "../../hooks/useForm";
 import {UserBusiness} from "../../Business/UserBusiness";
 import type {UserSignup} from "../../model/User";
+import {useCoordinator} from "../../hooks/useCoordinator";
+import {useEffect} from "react";
 
 const initialForm : UserSignup= {
   name:'', nickname:'', email: '', password: ''
@@ -12,20 +14,29 @@ const initialForm : UserSignup= {
 
 const userBusiness = new UserBusiness()
 
+
 export const Signup = ()=>{
   const [form : UserSignup, setForm, clearForm] = useForm(initialForm)
+  const {toFeed} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
     try {
       const token : string = await userBusiness.signup(form)
       window.localStorage.setItem('token', token)
+      toFeed()
       clearForm()
     }catch (err){
       alert(err.response?.data?.message)
     }
 
   }
+
+  useEffect(() => {
+    return () => {
+    };
+  }, []);
+
 
   return(
       <All>
