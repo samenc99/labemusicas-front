@@ -11,9 +11,7 @@ import {useEffect} from "react";
 const initialForm : UserSignup= {
   name:'', nickname:'', email: '', password: ''
 }
-
 const userBusiness = new UserBusiness()
-
 
 export const Signup = ()=>{
   const [form : UserSignup, setForm, clearForm] = useForm(initialForm)
