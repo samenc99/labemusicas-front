@@ -1,18 +1,19 @@
 import {UserController} from "../Controller/UserController";
 import validateEmail from "../services/validateEmail";
+import type {UserLogin, UserSignup} from "../model/User";
 
 export class UserBusiness {
 
   userController = new UserController()
 
-  login = async(data)=>{
-    return await this.userController.login(data)
+  login = (login : UserLogin)=>{
+    return this.userController.login(login)
   }
 
-  signup = async(data)=>{
-    if(!validateEmail(data.email)){
+  signup = (signup : UserSignup)=>{
+    if(!validateEmail(signup.email)){
       throw new Error('email')
     }
-    return await this.signup(data)
+    return this.userController.signup(signup)
   }
 }

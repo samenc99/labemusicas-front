@@ -1,12 +1,13 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {LOGIN, MUSIC, SIGNUP} from "./RoutesName";
+import {Signup} from "../pages/Signup/Signup";
 
 export const Routes = ()=>{
   return(
     <BrowserRouter>
       <Switch>
         <Route exat path={SIGNUP}>
-          <div>SIGNUP</div>
+          <Signup />
         </Route>
         <Route exat path={LOGIN}>
           <div>LOGIN</div>
