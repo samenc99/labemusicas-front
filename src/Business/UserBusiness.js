@@ -6,8 +6,12 @@ export class UserBusiness {
 
   userController = new UserController()
 
-  login = (login : UserLogin)=>{
-    return this.userController.login(login)
+  login = async(login : UserLogin) : Promise<string>=>{
+    const res = await this.userController.login(login)
+    if(res.data.token){
+      return res.data.token
+    }
+    throw new Error('Token undefined')
   }
 
   signup = (signup : UserSignup)=>{

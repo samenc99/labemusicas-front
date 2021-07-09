@@ -6,6 +6,8 @@ import type {UserLogin} from "../../model/User";
 import {useEffect, useState} from "react";
 import {UserBusiness} from "../../Business/UserBusiness";
 import {useCoordinator} from "../../hooks/useCoordinator";
+import {api} from "../../Controller/api";
+import useForm from "../../hooks/useForm";
 
 const initialForm : UserLogin = {
   emailOrNickname: '', password: ''
@@ -13,13 +15,13 @@ const initialForm : UserLogin = {
 const userBusiness = new UserBusiness()
 
 export const Login = ()=>{
-  const [form : UserLogin, setForm] = useState(initialForm);
+  const [form : UserLogin, setForm] = useForm(initialForm);
   const {toFeed, verifyLogin} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
     try{
-      const token : string = await userBusiness.login(form)
+      const token = await userBusiness.login(form)
       window.localStorage.setItem('token', token)
       toFeed()
     }catch (err){
@@ -30,7 +32,6 @@ export const Login = ()=>{
   useEffect(() => {
     verifyLogin()
   }, []);
-
 
   return(
     <All>

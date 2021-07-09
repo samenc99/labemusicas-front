@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {LOGIN, MUSIC, SIGNUP} from "./RoutesName";
 import {Signup} from "../pages/Sign/Signup";
 import {Login} from "../pages/Sign/Login";
+import {Musics} from "../pages/Music/Musics/Musics";
 
 export const Routes = ()=>{
   return(
@@ -14,7 +15,7 @@ export const Routes = ()=>{
           <Login />
         </Route>
         <Route exat path={MUSIC}>
-          <div>MUSIC</div>
+          <Musics/>
         </Route>
         <Route>
           <div>404</div>

@@ -1,4 +1,4 @@
-import {api, LOGIN, SIGNUP} from "./api";
+import { api, LOGIN, SIGNUP} from "./api";
 import type {UserLogin, UserSignup} from "../model/User";
 
 
