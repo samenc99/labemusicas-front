@@ -3,7 +3,7 @@ import {All} from "../components/All";
 import {Input} from "../components/Input";
 import {Button} from "../components/Button";
 import type {UserLogin} from "../../model/User";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {UserBusiness} from "../../Business/UserBusiness";
 import {useCoordinator} from "../../hooks/useCoordinator";
 
@@ -14,7 +14,7 @@ const userBusiness = new UserBusiness()
 
 export const Login = ()=>{
   const [form : UserLogin, setForm] = useState(initialForm);
-  const {toFeed} = useCoordinator()
+  const {toFeed, verifyLogin} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
@@ -26,6 +26,11 @@ export const Login = ()=>{
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    verifyLogin()
+  }, []);
+
 
   return(
     <All>
