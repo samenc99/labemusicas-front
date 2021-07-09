@@ -2,11 +2,11 @@ import {api, headers, MUSIC} from "./api";
 
 export class MusicController{
 
-  getMusics = async()=>{
+  getMusics = ()=>{
     return api.get(MUSIC, headers())
   }
 
-  getMusic = async(id : string)=>{
+  getMusic = (id : string)=>{
     return api.get(`${MUSIC}/${id}`)
   }
 
