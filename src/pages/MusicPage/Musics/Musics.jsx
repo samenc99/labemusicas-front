@@ -1,7 +1,6 @@
 import type {Music} from "../../../model/Music";
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {MusicBusiness} from "../../../Business/MusicBusiness";
-import {MusicPageContext} from "../MusicPageContext";
 import {Box, Content, ContentMusics, MyMusicNoteIcon, P, Title} from "./styled";
 import {OrganizeHeader} from "../OrganizeHeader/OrganizeHeader";
 import {CardMusic} from "../CardMusic/CardMusic";

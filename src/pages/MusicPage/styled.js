@@ -14,6 +14,7 @@ export const Nav = styled.nav`
 
 export const Content = styled.section`
   background-color: #121212;
+  overflow-y: auto;
 `
 
 export const PlayContent = styled.section`

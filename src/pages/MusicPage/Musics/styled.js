@@ -3,19 +3,17 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 export const Content = styled.main`
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
 `
 
 export const Title = styled.section`
   width: 100%;
   height: 300px;
-  background-image: linear-gradient(#4D369A,#131217);
+  background-image: linear-gradient(#4D369A,#1B1729);
   display: flex;
   align-items: center;
   padding-left: 30px;
 `
-
+//#131217
 export const Box = styled.div`
   width: 200px;
   height: 200px;
@@ -25,6 +23,7 @@ export const Box = styled.div`
   align-items: center;
   box-shadow: 0 0 50px black;
   margin-right: 50px;
+  border-radius: 50px;
 `
 
 export const MyMusicNoteIcon = styled(MusicNoteIcon)`
@@ -41,5 +40,4 @@ export const P = styled.p`
 
 export const ContentMusics = styled.section`
   width: 100%;
-  padding: 0 30px;
 `

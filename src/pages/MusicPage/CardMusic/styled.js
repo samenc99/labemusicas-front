@@ -16,6 +16,6 @@ export const Content = styled.li`
   >p:nth-child(1){
     color: white;
   }
-  padding-left: 20px;
+  padding-left: 50px;
   cursor: pointer;
 `

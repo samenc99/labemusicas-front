@@ -7,7 +7,7 @@ export const CardMusic = ({music})=>{
   const {setCurrentMusicId} = useContext(MusicPageContext)
 
   return(
-    <Content key={music.id} onClick={()=>setCurrentMusicId(music.id)}>
+    <Content onClick={()=>setCurrentMusicId(music.id)}>
       <p>{music.title}</p>
       <p>{music.author}</p>
       <p>{music.album}</p>
