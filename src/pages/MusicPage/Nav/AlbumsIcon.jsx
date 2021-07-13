@@ -1,8 +1,8 @@
 import {LiAlbums, MyAlbumIcon} from "./styled";
 
-export const Albums = ({page})=>{
+export const AlbumsIcon = ({page})=>{
   return(
-    <LiAlbums>
+    <LiAlbums page={page}>
       <MyAlbumIcon/>
       <p>Albums</p>
     </LiAlbums>

@@ -1,0 +1,47 @@
+import type {Music} from "../../../model/Music";
+import {useContext, useEffect, useState} from "react";
+import {MusicBusiness} from "../../../Business/MusicBusiness";
+import {MusicPageContext} from "../MusicPageContext";
+import {Box, Content, ContentMusics, MyMusicNoteIcon, P, Title} from "./styled";
+import {OrganizeHeader} from "../OrganizeHeader/OrganizeHeader";
+import {CardMusic} from "../CardMusic/CardMusic";
+
+const musicBusiness = new MusicBusiness()
+
+export const Musics = ()=>{
+  const [musics : Music[], setMusics] = useState([]);
+  const [organizedMusics : Music[], setOrganizedMusics] = useState([])
+
+  const getMusics = async()=>{
+    try{
+      const newMusics = await musicBusiness.getMusics()
+      setMusics(newMusics)
+      setOrganizedMusics(newMusics)
+    }catch (err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    getMusics()
+  },[])
+
+  const renderMusics = ()=>{
+    return organizedMusics.map(music=>{
+      return <CardMusic music={music} key={music.id}/>
+    })
+  }
+
+  return(
+    <Content>
+      <Title>
+        <Box><MyMusicNoteIcon/></Box>
+        <P>Added Songs</P>
+      </Title>
+      <ContentMusics>
+        <OrganizeHeader/>
+        {renderMusics()}
+      </ContentMusics>
+    </Content>
+  )
+}

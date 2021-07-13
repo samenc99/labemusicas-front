@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   padding: 10px;
 `
 
-export const MusicsContent = styled.section`
+export const Content = styled.section`
   background-color: #121212;
 `
 

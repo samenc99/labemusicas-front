@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AlbumIcon from "@material-ui/icons/Album";
+import SearchIcon from '@material-ui/icons/Search';
 
 export const MyInput = styled.input`
   width: 100%;
@@ -33,6 +34,10 @@ export const LiAlbums = styled(LiHome)`
   background-color: ${props => props.page==='albums'? '#282828' : '#000000'};
 `
 
+export const LiSearch = styled(LiHome)`
+  background-color: ${props => props.page==='search'? '#282828' : '#000000'};
+`
+
 export const MyHomeIcon = styled(HomeOutlinedIcon)`
   height: 35px;
   width: 35px;
@@ -40,6 +45,12 @@ export const MyHomeIcon = styled(HomeOutlinedIcon)`
 `
 
 export const MyAlbumIcon = styled(AlbumIcon)`
+  height: 35px;
+  width: 35px;
+  color: #f3f0f0;
+`
+
+export const MySearchIcon = styled(SearchIcon)`
   height: 35px;
   width: 35px;
   color: #f3f0f0;
