@@ -1,14 +1,15 @@
 import {Musics} from "./Musics/Musics";
+import {Search} from "./Search/Search";
 
 export const renderPage = (page)=>{
   switch (page){
     case 'search':
-      return <div>search</div>
+      return <Search />
     case 'home':
       return <Musics/>
     case 'albums':
       return <div>albums</div>
     default:
-      return <div>home</div>
+      return <Musics/>
   }
 }

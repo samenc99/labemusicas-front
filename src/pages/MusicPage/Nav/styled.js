@@ -3,17 +3,6 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AlbumIcon from "@material-ui/icons/Album";
 import SearchIcon from '@material-ui/icons/Search';
 
-export const MyInput = styled.input`
-  width: 100%;
-  height: 40px;
-  border: none;
-  border-radius: 25px;
-  padding-left: 25px;
-  outline: 0;
-  background-color: #f3f0f0;
-  margin-bottom: 20px;
-`
-
 export const LiHome = styled.li`
   width: 100%;
   height: 45px;

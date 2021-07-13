@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useCoordinator} from "../../hooks/useCoordinator";
 import {Content, MyAll, Nav, PlayContent} from "./styled";
 import {SearchIcon} from "./Nav/SearchIcon";
@@ -7,29 +7,32 @@ import {HomeIcon} from "./Nav/HomeIcon";
 import {AlbumsIcon} from "./Nav/AlbumsIcon";
 import {renderPage} from "./renderPage";
 import {MusicPageContext} from "./MusicPageContext";
-import type {Music} from "../../model/Music";
-
+import {useParams} from 'react-router-dom'
+import {redirectNav} from './redirectNav'
 
 export const MusicPage = ()=>{
-  const {validateLogin} = useCoordinator()
+  const {validateLogin, toHome, toSearch, toAlbums} = useCoordinator()
   validateLogin()
+  const {nav} = useParams()
   const [page : string, setPage] = useState('home');
   const [currentMusicId : string, setCurrentMusicId] = useState();
-
 
   const provider = {
     currentMusicId, setCurrentMusicId
   }
 
-  console.log({currentMusicId})
+  useEffect(()=>{
+    redirectNav(nav, toHome)
+    setPage(nav)
+  },[nav])
 
   return(
     <StylesProvider injectFirst>
       <MyAll>
         <Nav>
-          <div onClick={()=>setPage('search')}><SearchIcon page={page}/></div>
-          <div onClick={()=>setPage('home')}><HomeIcon page={page}/></div>
-          <div onClick={()=>setPage('albums')}><AlbumsIcon page={page}/></div>
+          <div onClick={toSearch}><SearchIcon page={page}/></div>
+          <div onClick={toHome}><HomeIcon page={page}/></div>
+          <div onClick={toAlbums}><AlbumsIcon page={page}/></div>
         </Nav>
         <Content>
           {
