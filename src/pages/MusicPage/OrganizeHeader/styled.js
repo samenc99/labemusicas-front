@@ -11,6 +11,10 @@ export const Content = styled.div`
     flex: 1;
     color: #B3B3B3;
     font-size: 15px;
+    cursor: pointer;
+    :hover{
+      color: white;
+    }
   }
   padding-left: 50px;
   margin-bottom: 10px;

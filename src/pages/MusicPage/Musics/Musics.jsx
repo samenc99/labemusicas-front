@@ -38,7 +38,7 @@ export const Musics = ()=>{
         <P>Added Songs</P>
       </Title>
       <ContentMusics>
-        <OrganizeHeader/>
+        <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
         {renderMusics()}
       </ContentMusics>
     </Content>
