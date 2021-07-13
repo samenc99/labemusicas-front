@@ -8,15 +8,24 @@ export const LiHome = styled.li`
   height: 45px;
   display: flex;
   align-items: center;
-  >p:nth-child(2){
+
+  > p:nth-child(2) {
     color: #f3f0f0;
     font-weight: bold;
     margin-left: 10px;
   }
-  background-color: ${props => props.page==='home'?'#282828' : '#000000'};
+
+  background-color: ${props => props.page === 'home' ? '#282828' : '#000000'};
   border-radius: 8px;
-  padding-left:10px;
+  padding-left: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 1s;
+
+  :hover {
+    transition: background-color 0.5s;
+    background-color: #171717;
+  }
 `
 
 export const LiAlbums = styled(LiHome)`
