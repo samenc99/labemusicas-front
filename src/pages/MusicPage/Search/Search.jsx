@@ -15,13 +15,14 @@ const musicBusiness = new MusicBusiness()
 export const Search = ({setCurrentMusicId})=>{
   const [input, setInput] = useInput()
   const query = useQuery()
-  const [musics : Music, setMusics] = useState()
+  const [musics : Music[], setMusics] = useState([])
+  const [organizedMusics : Music[], setOrganizedMusics] = useState([])
 
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
     try{
-      console.log('fui chamado: ', searchBy, input)
       const musics = await musicBusiness.getMusicsSearchBy(input, searchBy)
       setMusics(musics)
+      setOrganizedMusics()
     }catch (err){
       console.log(err)
     }
@@ -31,8 +32,15 @@ export const Search = ({setCurrentMusicId})=>{
     try{
       const musics = await musicBusiness.getMusicsSearch(input)
       setMusics(musics)
+      setOrganizedMusics()
     }catch (err){
       console.log(err)
+    }
+  }
+
+  const onKeyPress = (e)=>{
+    if(e.key==='Enter'){
+      getMusicsSearch()
     }
   }
 
@@ -51,10 +59,11 @@ export const Search = ({setCurrentMusicId})=>{
           placeholder={'Artists, songs or albums'}
           value={input}
           onChange={setInput}
+          onKeyPress={onKeyPress}
         />
         <MySearchIcon />
       </DivInput>
-      <OrganizeHeader />
+      <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
     </Content>
   )
 }
