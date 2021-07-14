@@ -4,7 +4,7 @@ import {useInput} from "../../../hooks/useInput";
 import {useLocation} from 'react-router-dom'
 import {useEffect, useState} from "react";
 import {MusicBusiness} from "../../../Business/MusicBusiness";
-import type {Music} from "../../../model/Music";
+import type {ShortMusic} from "../../../model/Music";
 import {CardMusic} from "../CardMusic/CardMusic";
 
 const useQuery = ()=>{
@@ -16,8 +16,8 @@ const musicBusiness = new MusicBusiness()
 export const Search = ({setCurrentMusicId})=>{
   const [input, setInput] = useInput()
   const query = useQuery()
-  const [musics : Music[], setMusics] = useState([])
-  const [organizedMusics : Music[], setOrganizedMusics] = useState([])
+  const [musics : ShortMusic[], setMusics] = useState([])
+  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState([])
 
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
     try{

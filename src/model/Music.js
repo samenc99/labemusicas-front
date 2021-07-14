@@ -6,5 +6,12 @@ export type Music = {
   file : string,
   album : string,
   genre : string[],
-  user_id : string
+  userId : string
+}
+
+export type ShortMusic = {
+  id : string,
+  title : string,
+  author : string,
+  album : string
 }

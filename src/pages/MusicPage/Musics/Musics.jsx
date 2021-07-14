@@ -1,4 +1,4 @@
-import type {Music} from "../../../model/Music";
+import type {ShortMusic} from "../../../model/Music";
 import {useEffect, useState} from "react";
 import {MusicBusiness} from "../../../Business/MusicBusiness";
 import {Box, Content, ContentMusics, MyMusicNoteIcon, P, Title} from "./styled";
@@ -8,8 +8,8 @@ import {CardMusic} from "../CardMusic/CardMusic";
 const musicBusiness = new MusicBusiness()
 
 export const Musics = ()=>{
-  const [musics : Music[], setMusics] = useState([]);
-  const [organizedMusics : Music[], setOrganizedMusics] = useState([])
+  const [musics : ShortMusic[], setMusics] = useState([]);
+  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState([])
 
   const getMusics = async()=>{
     try{

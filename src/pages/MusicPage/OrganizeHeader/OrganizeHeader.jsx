@@ -1,13 +1,13 @@
 import {Content} from "./styled";
 import {useState} from "react";
-import type {Music} from "../../../model/Music";
+import type {ShortMusic} from "../../../model/Music";
 
 const initial = {title : false, author : false, album : false}
 
 export const OrganizeHeader = ({musics, setOrganizedMusics})=>{
   const [orderBy, setOrderBy] = useState(initial)
 
-  const order = (a,b,key,comparator) : Music[]=>{
+  const order = (a,b,key,comparator) : ShortMusic[]=>{
     if(comparator){ //true order decrescente
       return b[key]>a[key]
     }
