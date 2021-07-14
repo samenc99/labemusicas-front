@@ -5,6 +5,7 @@ import {useLocation} from 'react-router-dom'
 import {useEffect, useState} from "react";
 import {MusicBusiness} from "../../../Business/MusicBusiness";
 import type {Music} from "../../../model/Music";
+import {CardMusic} from "../CardMusic/CardMusic";
 
 const useQuery = ()=>{
   return new URLSearchParams(useLocation().search)
@@ -21,18 +22,19 @@ export const Search = ({setCurrentMusicId})=>{
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
     try{
       const musics = await musicBusiness.getMusicsSearchBy(input, searchBy)
-      setMusics(musics)
-      setOrganizedMusics()
+      setMusics([...musics])
+      setOrganizedMusics([...musics])
     }catch (err){
       console.log(err)
     }
   }
 
   const getMusicsSearch = async()=>{
+    console.log('getMusicsSearch')
     try{
       const musics = await musicBusiness.getMusicsSearch(input)
-      setMusics(musics)
-      setOrganizedMusics()
+      setMusics([...musics])
+      setOrganizedMusics([...musics])
     }catch (err){
       console.log(err)
     }
@@ -52,6 +54,12 @@ export const Search = ({setCurrentMusicId})=>{
     }
   },[])
 
+  const renderMusics = ()=>{
+    return organizedMusics.map(music=>{
+      return <CardMusic music={music} key={music.id}/>
+    })
+  }
+
   return(
     <Content>
       <DivInput>
@@ -64,6 +72,7 @@ export const Search = ({setCurrentMusicId})=>{
         <MySearchIcon />
       </DivInput>
       <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
+      {renderMusics()}
     </Content>
   )
 }
