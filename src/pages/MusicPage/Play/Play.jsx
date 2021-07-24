@@ -44,6 +44,10 @@ export const Play = ()=>{
 
   useEffect(()=>{
     setAudio(document.getElementById('audio-player'))
+    if(currentMusic){
+      audio.play()
+      setPlaying(true)
+    }
   },[currentMusic])
 
   useEffect(()=>{
