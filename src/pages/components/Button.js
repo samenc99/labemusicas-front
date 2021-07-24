@@ -12,10 +12,13 @@ export const Button = styled.button`
   :hover{
     opacity: 80%;
   }
+  :active{
+    opacity: 100%;
+  }
   cursor: pointer;
 `
 
 export const ButtonOutlined = styled(Button)`
-  background-color: rgba(0,0,0,0);
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 3px 3px 6px rgb(0, 0, 0);
 `

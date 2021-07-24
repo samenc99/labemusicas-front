@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import MusicVideoIcon from '@material-ui/icons/MusicVideo';
+import background from '../../assets/background.jpg'
 
 export const Container = styled.main`
   width: 100vw;
@@ -8,7 +9,9 @@ export const Container = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(90deg, #050706,#0F170E,#142C29,#0A1716,#060908);
+  //background-image: linear-gradient(90deg, #050706,#0F170E,#142C29,#0A1716,#060908);
+  background-image: url(${background});
+  background-size: 100% 2px;
 `
 
 export const Form = styled.form`
