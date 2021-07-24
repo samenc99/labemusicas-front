@@ -10,9 +10,10 @@ import {MusicPageContext} from "./MusicPageContext";
 import {useParams} from 'react-router-dom'
 import {redirectNav} from './redirectNav'
 import {Play} from "./Play/Play";
+import {ExitIcon} from "./Nav/ExitIcon";
 
 export const MusicPage = ()=>{
-  const {validateLogin, toHome, toSearch, toAlbums} = useCoordinator()
+  const {validateLogin, toHome, toSearch, toAlbums, toLogin} = useCoordinator()
   validateLogin()
   const {nav} = useParams()
   const [page : string, setPage] = useState('home');
@@ -20,6 +21,11 @@ export const MusicPage = ()=>{
 
   const provider = {
     currentMusicId, setCurrentMusicId
+  }
+
+  const logout = ()=>{
+    window.localStorage.removeItem('token')
+    toLogin()
   }
 
   useEffect(()=>{
@@ -35,6 +41,7 @@ export const MusicPage = ()=>{
             <div onClick={toSearch}><SearchIcon page={page}/></div>
             <div onClick={toHome}><HomeIcon page={page}/></div>
             <div onClick={toAlbums}><AlbumsIcon page={page}/></div>
+            <div onClick={logout}><ExitIcon/></div>
           </Nav>
           <Content>
             {

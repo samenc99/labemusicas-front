@@ -10,6 +10,7 @@ export const MyAll = styled(All)`
 export const Nav = styled.nav`
   background-color: #000000;
   padding: 10px;
+  position: relative;
 `
 
 export const Content = styled.section`

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AlbumIcon from "@material-ui/icons/Album";
 import SearchIcon from '@material-ui/icons/Search';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export const LiHome = styled.li`
   width: 100%;
@@ -52,4 +53,26 @@ export const MySearchIcon = styled(SearchIcon)`
   height: 35px;
   width: 35px;
   color: #f3f0f0;
+`
+
+export const MyExitIcon = styled(ExitToAppIcon)`
+  height: 35px;
+  width: 35px;
+  color: inherit;
+  transition: color 0.5s;
+`
+
+export const LiExit = styled(LiHome)`
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  bottom: 0;
+  color: #f3f0f0;
+  >p:nth-child(2){
+    color: inherit;
+    transition: color 0.5s;
+  }
+  :hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #5a5a5a;
+  }
 `

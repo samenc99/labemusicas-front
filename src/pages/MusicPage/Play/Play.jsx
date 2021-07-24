@@ -55,8 +55,6 @@ export const Play = ()=>{
     if(currentMusicId)getMusic()
   },[currentMusicId])
 
-  console.log({currentMusic})
-
   return (
     <Content controls>
       {/*<audio controls src={'https://storage.googleapis.com/future-apis.appspot.com/1.mp4'}></audio>*/}
