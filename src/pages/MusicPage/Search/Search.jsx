@@ -21,20 +21,19 @@ export const Search = ({setCurrentMusicId})=>{
 
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
     try{
-      const musics = await musicBusiness.getMusicsSearchBy(input, searchBy)
-      setMusics([...musics])
-      setOrganizedMusics([...musics])
+      const musicsResponse = await musicBusiness.getMusicsSearchBy(input, searchBy)
+      setMusics([...musicsResponse])
+      setOrganizedMusics([...musicsResponse])
     }catch (err){
       console.log(err)
     }
   }
 
   const getMusicsSearch = async()=>{
-    console.log('getMusicsSearch')
     try{
-      const musics = await musicBusiness.getMusicsSearch(input)
-      setMusics([...musics])
-      setOrganizedMusics([...musics])
+      const musicsResponse = await musicBusiness.getMusicsSearch(input)
+      setMusics([...musicsResponse])
+      setOrganizedMusics([...musicsResponse])
     }catch (err){
       console.log(err)
     }
