@@ -1,7 +1,7 @@
-import {Container, Form} from "./styled";
+import {Container, DivTitle, Form, MyTitleIcon} from "./styled";
 import {All} from "../components/All";
 import {Input} from "../components/Input";
-import {Button} from "../components/Button";
+import {Button, ButtonOutlined} from "../components/Button";
 import type {UserLogin} from "../../model/User";
 import {useEffect, useState} from "react";
 import {UserBusiness} from "../../Business/UserBusiness";
@@ -16,7 +16,7 @@ const userBusiness = new UserBusiness()
 
 export const Login = ()=>{
   const [form : UserLogin, setForm] = useForm(initialForm);
-  const {toFeed, verifyLogin} = useCoordinator()
+  const {toFeed, verifyLogin, toSignup} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
@@ -36,6 +36,10 @@ export const Login = ()=>{
   return(
     <All>
       <Container>
+        <DivTitle>
+          <MyTitleIcon/>
+          <p>Labemusic<i>®</i></p>
+        </DivTitle>
         <Form onSubmit={onSubmit}>
           <Input
             placeholder={'E-mail or nickname'}
@@ -52,8 +56,9 @@ export const Login = ()=>{
             type={'password'}
             required
           />
-          <Button>Entrar</Button>
+          <Button>ENTRAR</Button>
         </Form>
+        <ButtonOutlined onClick={toSignup}>Inscrever-se</ButtonOutlined>
       </Container>
     </All>
   )

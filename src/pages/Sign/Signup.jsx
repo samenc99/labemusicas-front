@@ -1,7 +1,7 @@
 import {Input} from "../components/Input";
 import {Container, Form} from "./styled";
 import {All} from "../components/All";
-import {Button} from "../components/Button";
+import {Button, ButtonOutlined} from "../components/Button";
 import useForm from "../../hooks/useForm";
 import {UserBusiness} from "../../Business/UserBusiness";
 import type {UserSignup} from "../../model/User";
@@ -15,7 +15,7 @@ const userBusiness = new UserBusiness()
 
 export const Signup = ()=>{
   const [form : UserSignup, setForm, clearForm] = useForm(initialForm)
-  const {toFeed} = useCoordinator()
+  const {toFeed, toLogin} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
@@ -72,6 +72,7 @@ export const Signup = ()=>{
             />
             <Button>Criar conta</Button>
           </Form>
+          <ButtonOutlined onClick={toLogin}>Voltar</ButtonOutlined>
         </Container>
       </All>
   )
