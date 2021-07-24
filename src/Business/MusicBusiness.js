@@ -24,6 +24,14 @@ export class MusicBusiness{
     throw new Error('MusicPage undefined')
   }
 
+  getMusicAllUsers = async(id: string):Promise<Music>=>{
+    const res = await this.musicController.getMusicAllUsers(id)
+    if(res.data.music){
+      return res.data.music
+    }
+    throw new Error('Music not found')
+  }
+
   getMusicsSearch = async(input : string):Promise<ShortMusic[]>=>{
     if(!input)return
     const res = await this.musicController.getMusicsSearch(input)

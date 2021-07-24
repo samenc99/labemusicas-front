@@ -25,7 +25,7 @@ export const Article = styled.article`
   flex-direction: column;
   margin: 20px;
   color: #B3B3B3;
-  box-shadow: 0 0 7px #46328B;
+  box-shadow: 0 0 7px #1ED760;
   transition: all 1s;
   :hover{
     color: white;

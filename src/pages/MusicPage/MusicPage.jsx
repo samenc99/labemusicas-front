@@ -9,13 +9,14 @@ import {renderPage} from "./renderPage";
 import {MusicPageContext} from "./MusicPageContext";
 import {useParams} from 'react-router-dom'
 import {redirectNav} from './redirectNav'
+import {Play} from "./Play/Play";
 
 export const MusicPage = ()=>{
   const {validateLogin, toHome, toSearch, toAlbums} = useCoordinator()
   validateLogin()
   const {nav} = useParams()
   const [page : string, setPage] = useState('home');
-  const [currentMusicId : string, setCurrentMusicId] = useState();
+  const [currentMusicId : string, setCurrentMusicId] = useState('');
 
   const provider = {
     currentMusicId, setCurrentMusicId
@@ -28,21 +29,23 @@ export const MusicPage = ()=>{
 
   return(
     <StylesProvider injectFirst>
-      <MyAll>
-        <Nav>
-          <div onClick={toSearch}><SearchIcon page={page}/></div>
-          <div onClick={toHome}><HomeIcon page={page}/></div>
-          <div onClick={toAlbums}><AlbumsIcon page={page}/></div>
-        </Nav>
-        <Content>
-          {
-            <MusicPageContext.Provider value={provider}>
-              {renderPage(page)}
-            </MusicPageContext.Provider>
-          }
-        </Content>
-        <PlayContent>Alo</PlayContent>
-      </MyAll>
+      <MusicPageContext.Provider value={provider}>
+        <MyAll>
+          <Nav>
+            <div onClick={toSearch}><SearchIcon page={page}/></div>
+            <div onClick={toHome}><HomeIcon page={page}/></div>
+            <div onClick={toAlbums}><AlbumsIcon page={page}/></div>
+          </Nav>
+          <Content>
+            {
+              renderPage(page)
+            }
+          </Content>
+          <PlayContent>
+            <Play/>
+          </PlayContent>
+        </MyAll>
+      </MusicPageContext.Provider>
     </StylesProvider>
   )
 

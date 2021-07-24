@@ -10,6 +10,10 @@ export class MusicController{
     return api.get(`${MUSIC}/${id}`, headers())
   }
 
+  getMusicAllUsers = (id:string)=>{
+    return api.get(`${MUSIC}/${id}/all`, headers())
+  }
+
   getMusicsSearch = (input : string)=>{
     return api.get(`${MUSIC}?title=${input}&author=${input}&album=${input}`, headers())
   }
