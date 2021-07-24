@@ -16,14 +16,14 @@ const userBusiness = new UserBusiness()
 
 export const Login = ()=>{
   const [form : UserLogin, setForm] = useForm(initialForm);
-  const {toFeed, verifyLogin, toSignup} = useCoordinator()
+  const {toHome, verifyLogin, toSignup} = useCoordinator()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
     try{
       const token = await userBusiness.login(form)
       window.localStorage.setItem('token', token)
-      toFeed()
+      toHome()
     }catch (err){
       console.log(err)
     }
