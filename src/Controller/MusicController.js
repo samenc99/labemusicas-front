@@ -1,4 +1,4 @@
-import {api, headers, MUSIC} from "./api";
+import {ALBUMS, api, headers, MUSIC} from "./api";
 
 export class MusicController{
 
@@ -16,6 +16,10 @@ export class MusicController{
 
   getMusicsSearchBy = (input : string, searchBy : string)=>{
     return api.get(`${MUSIC}?${searchBy}=${input}`, headers())
+  }
+
+  getAlbums = ()=>{
+    return api.get(MUSIC + ALBUMS, headers())
   }
 
 }

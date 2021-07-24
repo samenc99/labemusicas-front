@@ -15,3 +15,14 @@ export type ShortMusic = {
   author : string,
   album : string
 }
+
+export type Album = {
+  title : string,
+  quantityMusics : number
+}
+
+export type GetMusicQuery = {
+  title? : string,
+  author? : string,
+  album? : string
+}

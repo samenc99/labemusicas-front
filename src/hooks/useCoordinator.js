@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 const SIGNUP = '/signup'
 const LOGIN = '/login'
 const HOME = '/music/home'
-const SEARCH = '/music/search'
+const SEARCH = '/music/search/search'
 const ALBUMS = '/music/albums'
 
 export const useCoordinator = () => {

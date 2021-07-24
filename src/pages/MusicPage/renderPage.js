@@ -1,5 +1,6 @@
 import {Musics} from "./Musics/Musics";
 import {Search} from "./Search/Search";
+import {Albums} from "./Albums/Albums";
 
 export const renderPage = (page)=>{
   switch (page){
@@ -8,7 +9,7 @@ export const renderPage = (page)=>{
     case 'home':
       return <Musics/>
     case 'albums':
-      return <div>albums</div>
+      return <Albums/>
     default:
       return <Musics/>
   }

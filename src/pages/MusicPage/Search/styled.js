@@ -42,3 +42,8 @@ export const MySearchIcon = styled(SearchIcon)`
     color: #7b8f88;
   }
 `
+
+export const Header = styled.header`
+  position: sticky;
+  top: 0;
+`

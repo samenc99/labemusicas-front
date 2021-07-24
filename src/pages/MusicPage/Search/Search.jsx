@@ -1,4 +1,4 @@
-import {Content, DivInput, MyInput, MySearchIcon} from "./styled";
+import {Content, DivInput, MyInput, MySearchIcon, Header} from "./styled";
 import {OrganizeHeader} from "../OrganizeHeader/OrganizeHeader";
 import {useInput} from "../../../hooks/useInput";
 import {useLocation} from 'react-router-dom'
@@ -62,16 +62,18 @@ export const Search = ({setCurrentMusicId})=>{
 
   return(
     <Content>
-      <DivInput>
-        <MyInput
-          placeholder={'Artists, songs or albums'}
-          value={input}
-          onChange={setInput}
-          onKeyPress={onKeyPress}
-        />
-        <MySearchIcon />
-      </DivInput>
-      <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
+      <Header>
+        <DivInput>
+          <MyInput
+            placeholder={'Artists, songs or albums'}
+            value={input}
+            onChange={setInput}
+            onKeyPress={onKeyPress}
+          />
+          <MySearchIcon />
+        </DivInput>
+        <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
+      </Header>
       {renderMusics()}
     </Content>
   )
