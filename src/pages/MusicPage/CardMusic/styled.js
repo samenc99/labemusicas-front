@@ -18,4 +18,10 @@ export const Content = styled.li`
   }
   padding-left: 50px;
   cursor: pointer;
+  :hover{
+    background-color: #181818;
+  }
+  :active{
+    opacity: 80%;
+  }
 `
