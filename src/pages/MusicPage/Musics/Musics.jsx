@@ -4,21 +4,29 @@ import {MusicBusiness} from "../../../Business/MusicBusiness";
 import {Box, Content, ContentMusics, MyMusicNoteIcon, P, Title} from "./styled";
 import {OrganizeHeader} from "../OrganizeHeader/OrganizeHeader";
 import {CardMusic} from "../CardMusic/CardMusic";
+import {MusicNotFound} from "../../components/MusicNotFound";
+import {Loading} from "../../components/Loading";
 
 const musicBusiness = new MusicBusiness()
 
 export const Musics = ()=>{
   const [musics : ShortMusic[], setMusics] = useState([]);
-  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState([])
+  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState()
+  const [loading, setLoading] = useState(false)
 
   const getMusics = async()=>{
+    setLoading(true)
     try{
       const newMusics = await musicBusiness.getMusics()
       setMusics(newMusics)
       setOrganizedMusics(newMusics)
     }catch (err){
-      console.log(err)
+      if(err.response.data.message!=='Songs not found'){
+        alert(err.response.data.message)
+      }
+      setOrganizedMusics([])
     }
+    setLoading(false)
   }
 
   useEffect(()=>{
@@ -26,7 +34,10 @@ export const Musics = ()=>{
   },[])
 
   const renderMusics = ()=>{
-    return organizedMusics.map(music=>{
+    if(organizedMusics?.length===0){
+      return <MusicNotFound message={'Musics not found'}/>
+    }
+    return organizedMusics?.map(music=>{
       return <CardMusic music={music} key={music.id}/>
     })
   }
@@ -39,7 +50,12 @@ export const Musics = ()=>{
       </Title>
       <ContentMusics>
         <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
-        {renderMusics()}
+        {
+          loading?
+            <Loading/>
+            :
+            renderMusics()
+        }
       </ContentMusics>
     </Content>
   )
