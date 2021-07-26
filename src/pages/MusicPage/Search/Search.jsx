@@ -7,6 +7,7 @@ import {MusicBusiness} from "../../../Business/MusicBusiness";
 import type {ShortMusic} from "../../../model/Music";
 import {CardMusic} from "../CardMusic/CardMusic";
 import {Loading} from "../../components/Loading";
+import {MusicNotFound} from "../../components/MusicNotFound";
 
 const useQuery = ()=>{
   return new URLSearchParams(useLocation().search)
@@ -18,7 +19,7 @@ export const Search = ({setCurrentMusicId})=>{
   const [input, setInput] = useInput()
   const query = useQuery()
   const [musics : ShortMusic[], setMusics] = useState([])
-  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState([])
+  const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState()
   const [loading, setLoading] = useState(false)
 
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
@@ -30,6 +31,7 @@ export const Search = ({setCurrentMusicId})=>{
     }catch (err){
       setMusics([])
       setOrganizedMusics([])
+      alert(err.response.message)
     }
     setLoading(false)
   }
@@ -43,6 +45,7 @@ export const Search = ({setCurrentMusicId})=>{
     }catch (err){
       setMusics([])
       setOrganizedMusics([])
+      alert(err.response.message)
     }
     setLoading(false)
   }
@@ -62,7 +65,10 @@ export const Search = ({setCurrentMusicId})=>{
   },[])
 
   const renderMusics = ()=>{
-    return organizedMusics.map(music=>{
+    if(organizedMusics?.length===0){
+      return <MusicNotFound message={'Music, artist or album not found'}/>
+    }
+    return organizedMusics?.map(music=>{
       return <CardMusic music={music} key={music.id}/>
     })
   }
