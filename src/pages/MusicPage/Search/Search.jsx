@@ -25,18 +25,19 @@ export const Search = ({setCurrentMusicId})=>{
       setMusics([...musicsResponse])
       setOrganizedMusics([...musicsResponse])
     }catch (err){
-      console.log(err)
+      setMusics([])
+      setOrganizedMusics([])
     }
   }
 
   const getMusicsSearch = async()=>{
     try{
       const musicsResponse = await musicBusiness.getMusicsSearch(input)
-      console.log({musicsResponse})
       setMusics([...musicsResponse])
       setOrganizedMusics([...musicsResponse])
     }catch (err){
-      console.log(err)
+      setMusics([])
+      setOrganizedMusics([])
     }
   }
 
@@ -70,7 +71,7 @@ export const Search = ({setCurrentMusicId})=>{
             onChange={setInput}
             onKeyPress={onKeyPress}
           />
-          <MySearchIcon />
+          <div onClick={getMusicsSearch}><MySearchIcon /></div>
         </DivInput>
         <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
       </Header>
