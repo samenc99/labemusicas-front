@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Content = styled.li`
   list-style: none;
   width: 100%;
-  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
   align-items: center;
   display: flex;
   justify-content: space-between;

@@ -4,6 +4,10 @@ import SearchIcon from '@material-ui/icons/Search';
 
 export const Content = styled.main`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const DivInput = styled.section`
@@ -46,4 +50,5 @@ export const MySearchIcon = styled(SearchIcon)`
 export const Header = styled.header`
   position: sticky;
   top: 0;
+  width: 100%;
 `

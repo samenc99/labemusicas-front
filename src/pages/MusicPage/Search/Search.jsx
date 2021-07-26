@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {MusicBusiness} from "../../../Business/MusicBusiness";
 import type {ShortMusic} from "../../../model/Music";
 import {CardMusic} from "../CardMusic/CardMusic";
+import {Loading} from "../../components/Loading";
 
 const useQuery = ()=>{
   return new URLSearchParams(useLocation().search)
@@ -18,8 +19,10 @@ export const Search = ({setCurrentMusicId})=>{
   const query = useQuery()
   const [musics : ShortMusic[], setMusics] = useState([])
   const [organizedMusics : ShortMusic[], setOrganizedMusics] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const getMusicsSearchBy = async(input : string, searchBy : string)=>{
+    setLoading(true)
     try{
       const musicsResponse = await musicBusiness.getMusicsSearchBy(input, searchBy)
       setMusics([...musicsResponse])
@@ -28,9 +31,11 @@ export const Search = ({setCurrentMusicId})=>{
       setMusics([])
       setOrganizedMusics([])
     }
+    setLoading(false)
   }
 
   const getMusicsSearch = async()=>{
+    setLoading(true)
     try{
       const musicsResponse = await musicBusiness.getMusicsSearch(input)
       setMusics([...musicsResponse])
@@ -39,6 +44,7 @@ export const Search = ({setCurrentMusicId})=>{
       setMusics([])
       setOrganizedMusics([])
     }
+    setLoading(false)
   }
 
   const onKeyPress = (e)=>{
@@ -75,7 +81,12 @@ export const Search = ({setCurrentMusicId})=>{
         </DivInput>
         <OrganizeHeader musics={musics} setOrganizedMusics={setOrganizedMusics}/>
       </Header>
-      {renderMusics()}
+      {
+        loading?
+          <Loading/>
+          :
+          renderMusics()
+      }
     </Content>
   )
 }
