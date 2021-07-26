@@ -3,26 +3,37 @@ import type {Album} from "../../../model/Music";
 import {useEffect, useState} from "react";
 import {Article, Content, MyAlbumOutlinedIcon, Quantity, Title} from "./styled";
 import {useCoordinator} from "../../../hooks/useCoordinator";
+import {NotFound} from "../../components/NotFound";
+import {Loading} from "../../components/Loading";
 
 const musicBusiness = new MusicBusiness()
 
 export const Albums = ()=>{
-  const [albums : Album[], setAlbums] = useState([]);
+  const [albums : Album[], setAlbums] = useState();
   const {toSearch} = useCoordinator()
+  const [loading, setLoading] = useState(false)
 
   const getAlbums = async()=>{
+    setLoading(true)
     try {
       const albums  = await musicBusiness.getAlbums()
       setAlbums(albums)
     }catch (err){
-      console.log(err)
+      if(err.response.data.message!=='Albums not found'){
+        alert(err.response.data.message)
+      }
+      setAlbums([])
     }
+    setLoading(false)
   }
 
   useEffect(getAlbums, [])
 
   const renderAlbums = ()=>{
-    return albums.map(album=>{
+    if(albums?.length===0){
+      return <NotFound message={'Albums not found'}/>
+    }
+    return albums?.map(album=>{
       return <Article
         key={album.title+String(album.quantityMusics)}
         onClick={()=>toSearch(`album=${album.title}`)}
@@ -36,7 +47,12 @@ export const Albums = ()=>{
 
   return (
     <Content>
-      {renderAlbums()}
+      {
+        loading?
+          <Loading/>
+          :
+          renderAlbums()
+      }
     </Content>
   )
 }

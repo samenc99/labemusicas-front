@@ -7,7 +7,7 @@ import {MusicBusiness} from "../../../Business/MusicBusiness";
 import type {ShortMusic} from "../../../model/Music";
 import {CardMusic} from "../CardMusic/CardMusic";
 import {Loading} from "../../components/Loading";
-import {MusicNotFound} from "../../components/MusicNotFound";
+import {NotFound} from "../../components/NotFound";
 
 const useQuery = ()=>{
   return new URLSearchParams(useLocation().search)
@@ -70,7 +70,7 @@ export const Search = ({setCurrentMusicId})=>{
 
   const renderMusics = ()=>{
     if(organizedMusics?.length===0){
-      return <MusicNotFound message={'Music, artist or album not found'}/>
+      return <NotFound message={'Music, artist or album not found'}/>
     }
     return organizedMusics?.map(music=>{
       return <CardMusic music={music} key={music.id}/>

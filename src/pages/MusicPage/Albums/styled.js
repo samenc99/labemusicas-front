@@ -6,6 +6,7 @@ export const Content = styled.main`
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const MyAlbumOutlinedIcon = styled(AlbumOutlinedIcon)`

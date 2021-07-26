@@ -4,7 +4,7 @@ import {MusicBusiness} from "../../../Business/MusicBusiness";
 import {Box, Content, ContentMusics, MyMusicNoteIcon, P, Title} from "./styled";
 import {OrganizeHeader} from "../OrganizeHeader/OrganizeHeader";
 import {CardMusic} from "../CardMusic/CardMusic";
-import {MusicNotFound} from "../../components/MusicNotFound";
+import {NotFound} from "../../components/NotFound";
 import {Loading} from "../../components/Loading";
 
 const musicBusiness = new MusicBusiness()
@@ -35,7 +35,7 @@ export const Musics = ()=>{
 
   const renderMusics = ()=>{
     if(organizedMusics?.length===0){
-      return <MusicNotFound message={'Musics not found'}/>
+      return <NotFound message={'Musics not found'}/>
     }
     return organizedMusics?.map(music=>{
       return <CardMusic music={music} key={music.id}/>

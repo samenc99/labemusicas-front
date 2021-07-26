@@ -18,7 +18,7 @@ export const Icon = styled(NotInterestedIcon)`
   color: white;
 `
 
-export const MusicNotFound = ({message})=>{
+export const NotFound = ({message})=>{
   return <P>
     <Icon/>
     {message}
