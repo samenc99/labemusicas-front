@@ -1,4 +1,5 @@
 import {ALBUMS, api, headers, MUSIC} from "./api";
+import type {MusicData} from "../model/Music";
 
 export class MusicController{
 
@@ -24,6 +25,10 @@ export class MusicController{
 
   getAlbums = ()=>{
     return api.get(MUSIC + ALBUMS, headers())
+  }
+
+  addMusic = (form : MusicData)=>{
+    return api.post(MUSIC, form, headers())
   }
 
 }

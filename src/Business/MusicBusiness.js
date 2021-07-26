@@ -1,5 +1,5 @@
 import {MusicController} from "../Controller/MusicController";
-import type {Music, ShortMusic, Album} from "../model/Music";
+import type {Music, ShortMusic, Album, MusicDTO, MusicData} from "../model/Music";
 
 String.prototype.capitalize = function (){
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -35,6 +35,7 @@ export class MusicBusiness{
   getMusicsSearch = async(input : string):Promise<ShortMusic[]>=>{
     if(!input)return
     const res = await this.musicController.getMusicsSearch(input)
+    console.log({musicas: res.data.musics})
     if(res.data.musics){
       return res.data.musics
     }
@@ -56,6 +57,14 @@ export class MusicBusiness{
       return res.data.albums
     }
     throw new Error('Albums not found.')
+  }
+
+  addMusic = async(form : MusicDTO):Promise<void>=>{
+    const newForm : MusicData = {
+      ...form,
+      genre : form.genre.split(',')
+    }
+    await this.musicController.addMusic(newForm)
   }
 
 }

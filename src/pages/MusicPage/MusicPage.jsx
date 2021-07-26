@@ -11,9 +11,10 @@ import {useParams} from 'react-router-dom'
 import {redirectNav} from './redirectNav'
 import {Play} from "./Play/Play";
 import {ExitIcon} from "./Nav/ExitIcon";
+import {AddMusicIcon} from "./Nav/AddMusicIcon";
 
 export const MusicPage = ()=>{
-  const {validateLogin, toHome, toSearch, toAlbums, toLogin} = useCoordinator()
+  const {validateLogin, toHome, toSearch, toAlbums, toLogin, toAddMusic} = useCoordinator()
   validateLogin()
   const {nav} = useParams()
   const [page : string, setPage] = useState('home');
@@ -41,6 +42,7 @@ export const MusicPage = ()=>{
             <div onClick={toSearch}><SearchIcon page={page}/></div>
             <div onClick={toHome}><HomeIcon page={page}/></div>
             <div onClick={toAlbums}><AlbumsIcon page={page}/></div>
+            <div onClick={toAddMusic}><AddMusicIcon page={page}/></div>
             <div onClick={logout}><ExitIcon/></div>
           </Nav>
           <Content>

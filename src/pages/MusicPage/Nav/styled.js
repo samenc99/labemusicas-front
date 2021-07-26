@@ -3,6 +3,7 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import AlbumIcon from "@material-ui/icons/Album";
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
 export const LiHome = styled.li`
   width: 100%;
@@ -35,6 +36,10 @@ export const LiAlbums = styled(LiHome)`
 
 export const LiSearch = styled(LiHome)`
   background-color: ${props => props.page==='search'? '#282828' : '#000000'};
+`
+
+export const LiAddMusic = styled(LiHome)`
+  background-color: ${props => props.page==='addmusic'? '#282828' : '#000000'};
 `
 
 export const MyHomeIcon = styled(HomeOutlinedIcon)`
@@ -75,4 +80,10 @@ export const LiExit = styled(LiHome)`
     background-color: rgba(0, 0, 0, 0);
     color: #5a5a5a;
   }
+`
+
+export const MyAddMusicIcon = styled(AddCircleOutlineOutlinedIcon)`
+  width: 35px;
+  height: 35px;
+  color: #f3f0f0;
 `

@@ -5,6 +5,7 @@ const LOGIN = '/login'
 const HOME = '/music/home'
 const SEARCH = '/music/search/search'
 const ALBUMS = '/music/albums'
+const ADDMUSIC = '/music/addmusic'
 
 export const useCoordinator = () => {
   const history = useHistory()
@@ -17,6 +18,7 @@ export const useCoordinator = () => {
     else history.push(SEARCH)
   }
   const toAlbums = ()=>history.push(ALBUMS)
+  const toAddMusic = ()=>history.push(ADDMUSIC)
 
   const validateLogin = ()=>{
     const token = window.localStorage.getItem('token')
@@ -29,6 +31,6 @@ export const useCoordinator = () => {
   }
 
   return{
-    toSignup, toLogin, toHome, validateLogin, verifyLogin, toSearch, toAlbums
+    toSignup, toLogin, toHome, validateLogin, verifyLogin, toSearch, toAlbums, toAddMusic
   }
 }

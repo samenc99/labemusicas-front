@@ -26,3 +26,16 @@ export type GetMusicQuery = {
   author? : string,
   album? : string
 }
+
+export type MusicDTO = {
+  title : string,
+  author : string,
+  date ?: Date,
+  file : string,
+  album : any,
+  genre : string
+}
+
+export type MusicData = MusicDTO & {
+  genre : string[]
+}

@@ -32,6 +32,7 @@ export const Search = ({setCurrentMusicId})=>{
   const getMusicsSearch = async()=>{
     try{
       const musicsResponse = await musicBusiness.getMusicsSearch(input)
+      console.log({musicsResponse})
       setMusics([...musicsResponse])
       setOrganizedMusics([...musicsResponse])
     }catch (err){
