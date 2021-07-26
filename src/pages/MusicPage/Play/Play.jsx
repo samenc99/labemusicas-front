@@ -46,8 +46,13 @@ export const Play = ()=>{
     const audioElement = document.getElementById('audio-player')
     setAudio(audioElement)
     if(currentMusic){
-      audioElement.play()
-      setPlaying(true)
+      audioElement.play().then(()=>{
+        setPlaying(true)
+      }).catch(err=>{
+        setPlaying(false)
+        setCurrentMusic()
+        alert('Estamos com problemas para carregar este áudio.')
+      })
     }
   },[currentMusic])
 
