@@ -5,6 +5,7 @@ export const LOGIN = '/user/login'
 export const SIGNUP = '/user/signup'
 export const MUSIC = '/music'
 export const ALBUMS = '/albums'
+export const MUSICALL = '/music/all'
 
 export const api = axios.create({
   baseURL : BASE_URL

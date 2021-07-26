@@ -32,19 +32,18 @@ export class MusicBusiness{
     throw new Error('Music not found')
   }
 
-  getMusicsSearch = async(input : string):Promise<ShortMusic[]>=>{
+  getMusicsSearch = async(input : string, all?: boolean):Promise<ShortMusic[]>=>{
     if(!input)return
-    const res = await this.musicController.getMusicsSearch(input)
-    console.log({musicas: res.data.musics})
+    const res = await this.musicController.getMusicsSearch(input, all)
     if(res.data.musics){
       return res.data.musics
     }
     throw new Error('Musics not found')
   }
 
-  getMusicsSearchBy = async(input : string, searchBy : string):Promise<ShortMusic[]>=>{
+  getMusicsSearchBy = async(input : string, searchBy : string, all?:boolean):Promise<ShortMusic[]>=>{
     if(!input || !searchBy)return
-    const res = await this.musicController.getMusicsSearchBy(input, searchBy)
+    const res = await this.musicController.getMusicsSearchBy(input, searchBy, all)
     if(res.data.musics){
       return res.data.musics
     }
