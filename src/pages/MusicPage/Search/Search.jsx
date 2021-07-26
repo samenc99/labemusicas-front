@@ -31,7 +31,9 @@ export const Search = ({setCurrentMusicId})=>{
     }catch (err){
       setMusics([])
       setOrganizedMusics([])
-      alert(err.response.message)
+      if(err.response.data.message!=='Songs not found'){
+        alert(err.response.data.message)
+      }
     }
     setLoading(false)
   }
@@ -45,7 +47,9 @@ export const Search = ({setCurrentMusicId})=>{
     }catch (err){
       setMusics([])
       setOrganizedMusics([])
-      alert(err.response.message)
+      if(err.response.data.message!=='Songs not found'){
+        alert(err.response.data.message)
+      }
     }
     setLoading(false)
   }
