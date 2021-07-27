@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = 'http://localhost:3003'
+export const BASE_URL = 'https://labemusica.herokuapp.com'
 export const LOGIN = '/user/login'
 export const SIGNUP = '/user/signup'
 export const MUSIC = '/music'

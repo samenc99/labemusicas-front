@@ -14,7 +14,7 @@ import {ExitIcon} from "./Nav/ExitIcon";
 import {AddMusicIcon} from "./Nav/AddMusicIcon";
 
 export const MusicPage = ()=>{
-  const {validateLogin, toHome, toSearch, toAlbums, toLogin, toAddMusic} = useCoordinator()
+  const {validateLogin, toHome, toSearch, toAlbums, toAddMusic, logout} = useCoordinator()
   validateLogin()
   const {nav} = useParams()
   const [page : string, setPage] = useState('home');
@@ -22,11 +22,6 @@ export const MusicPage = ()=>{
 
   const provider = {
     currentMusicId, setCurrentMusicId
-  }
-
-  const logout = ()=>{
-    window.localStorage.removeItem('token')
-    toLogin()
   }
 
   useEffect(()=>{

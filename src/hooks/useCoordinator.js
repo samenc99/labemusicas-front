@@ -30,7 +30,12 @@ export const useCoordinator = () => {
     if(token)toHome()
   }
 
+  const logout = ()=>{
+    window.localStorage.removeItem('token')
+    toLogin()
+  }
+
   return{
-    toSignup, toLogin, toHome, validateLogin, verifyLogin, toSearch, toAlbums, toAddMusic
+    toSignup, toLogin, toHome, validateLogin, verifyLogin, toSearch, toAlbums, toAddMusic, logout
   }
 }

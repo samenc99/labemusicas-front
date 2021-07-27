@@ -1,5 +1,6 @@
 import {MusicController} from "../Controller/MusicController";
 import type {Music, ShortMusic, Album, MusicDTO, MusicData} from "../model/Music";
+import {logout} from "../services/logout";
 
 String.prototype.capitalize = function (){
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -9,11 +10,21 @@ export class MusicBusiness{
   musicController = new MusicController()
 
   getMusics = async():Promise<ShortMusic[]>=>{
-    const res = await this.musicController.getMusics()
-    if(Array.isArray(res.data.musics)){
-      return res.data.musics
+    try{
+      const res = await this.musicController.getMusics()
+      if(Array.isArray(res.data.musics)){
+        return res.data.musics
+      }
+      throw new Error()
+    }catch (err){
+      if(err?.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err?.response?.data?.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    throw new Error('MusicPage undefined')
   }
 
   getMusic = async(id : string):Promise<Music>=>{
