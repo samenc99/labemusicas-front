@@ -19,13 +19,14 @@ export class MusicController{
     if(all) {
       return api.get(`${MUSICALL}?title=${input}&author=${input}&album=${input}`, headers())
     }
-    return api.get(`${MUSIC}?title=${input}&author=${input}&album=${input}/${all}`, headers())
+    return api.get(`${MUSIC}?title=${input}&author=${input}&album=${input}`, headers())
   }
 
   getMusicsSearchBy = (input : string, searchBy : string, all? : boolean)=>{
-    if(all)
+    if(all) {
       return api.get(`${MUSICALL}?${searchBy}=${input}`, headers())
-    return api.get(`${MUSIC}?${searchBy}=${input}/${all}`, headers())
+    }
+    return api.get(`${MUSIC}?${searchBy}=${input}`, headers())
   }
 
   getAlbums = ()=>{
