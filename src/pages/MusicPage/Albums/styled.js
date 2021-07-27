@@ -39,7 +39,7 @@ export const Title = styled.p`
   font-size: 20px;
   color: white;
   width: 100%;
-  padding-left: 20px;
+  padding: 0 20px;
   margin-top: 20px;
 `
 
