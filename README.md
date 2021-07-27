@@ -37,7 +37,7 @@ Projeto Labemusica inspirado no [Spotify](https://open.spotify.com/), sendo de d
 ## Publicação
 
 Projeto publicado no Surge:
-[Clique aqui](https://labemusica-sam.surge.sh/login)
+[Clique aqui](http://labemusica-sam.surge.sh/login)
 
 Repositório do back-end:
 [Clique aqui](https://github.com/samenc99/labemusicas-back)
