@@ -18,7 +18,7 @@ export const Routes = ()=>{
           <MusicPage/>
         </Route>
         <Route>
-          <Redirect to={MUSIC}/>
+          <Redirect to={LOGIN}/>
         </Route>
       </Switch>
     </BrowserRouter>
