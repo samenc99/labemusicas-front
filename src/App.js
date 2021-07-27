@@ -1,8 +1,11 @@
 import {Routes} from "./Routes/Routes";
+import {StylesProvider} from "@material-ui/core";
 
 function App() {
   return (
-    <Routes/>
+    <StylesProvider injectFirst>
+      <Routes/>
+    </StylesProvider>
   );
 }
 
