@@ -6,7 +6,7 @@
 
 <br/>
 
-### Bem vindos!
+### Bem vindo!
 
 Projeto Labemusica inspirado no [Spotify](https://open.spotify.com/), sendo de design livre a cargo do desenvolvedor.
 
