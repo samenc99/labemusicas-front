@@ -1,70 +1,43 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rappi4
 
-## Available Scripts
+![labemusica](https://i.ibb.co/X5SFkbx/labemusica.png)
 
-In the project directory, you can run:
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Bem vindos!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Projeto Labemusica inspirado no [Spotify](https://open.spotify.com/), sendo de design livre a cargo do desenvolvedor.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Sumário
 
-### `npm run build`
+- [Tecnologias](#tecnologias)
+- [Publicação](#publicação)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###Front-end
+[React JS](https://pt-br.reactjs.org/) - biblioteca JavaScript para criar interfaces de usuário.<br/>
+[ReactRouter](https://reactrouter.com/) - coleção de componentes de navegação para React.</br>
+[Styled-components](https://styled-components.com/) -  permite CSS escrito diretamente no código para estilização de componentes do React JS.<br/>
+[Axios](https://axios-http.com/) - um cliente HTTP baseado em Promises para fazer requisições.</br>
+[Material UI](https://material-ui.com/) - biblioteca UI para React designada a criar User Interfaces. </br>
+[Surge](https://surge.sh/) - é uma plataforma que permite a publicação estática na web para desenvolvedores front-end.
 
-### `npm run eject`
+###Back-end
+[Node.js](https://nodejs.org/) - é um software que permite a execução de códigos JavaScript fora de um navegador web. </br>
+[Typescript](https://www.typescriptlang.org/) - é uma linguagem de programação. É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem.</br>
+[MySql](https://www.mysql.com/) - é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface.</br>
+[Heroku](https://dashboard.heroku.com/) - é uma plataforma em nuvem como um serviço que suporta várias linguagens de programação.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Publicação
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Projeto publicado no Surge:
+[Clique aqui](https://labemusica-sam.surge.sh/login)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Repositório do back-end:
+[Clique aqui](https://github.com/samenc99/labemusicas-back)
