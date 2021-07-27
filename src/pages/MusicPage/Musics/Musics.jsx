@@ -21,10 +21,10 @@ export const Musics = ()=>{
       setMusics(newMusics)
       setOrganizedMusics(newMusics)
     }catch (err){
+      setOrganizedMusics([])
       if(err.message!=='Songs not found'){
         alert(err.message)
       }
-      setOrganizedMusics([])
     }
     setLoading(false)
   }

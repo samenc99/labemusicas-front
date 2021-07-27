@@ -17,12 +17,12 @@ export class MusicBusiness{
       }
       throw new Error()
     }catch (err){
-      if(err?.response?.data?.message?.includes('Token')){
+      if(err.response?.data?.message?.includes('Token')){
         alert(err.response.data.message)
         logout()
       }
       else{
-        throw new Error(err?.response?.data?.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+        throw new Error(err.response?.data?.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
       }
     }
   }
@@ -44,21 +44,45 @@ export class MusicBusiness{
   }
 
   getMusicsSearch = async(input : string, all?: boolean):Promise<ShortMusic[]>=>{
-    if(!input)return
-    const res = await this.musicController.getMusicsSearch(input, all)
-    if(res.data.musics){
-      return res.data.musics
+    try {
+      if(!input){
+        throw new Error('Por favor, preencha o campo de busca.')
+      }
+      const res = await this.musicController.getMusicsSearch(input, all)
+      if (res.data.musics) {
+        return res.data.musics
+      }
+      throw new Error()
+    }catch (err){
+      if(err.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    throw new Error('Musics not found')
   }
 
   getMusicsSearchBy = async(input : string, searchBy : string, all?:boolean):Promise<ShortMusic[]>=>{
-    if(!input || !searchBy)return
-    const res = await this.musicController.getMusicsSearchBy(input, searchBy, all)
-    if(res.data.musics){
-      return res.data.musics
+    try {
+      if(!input || !searchBy){
+        throw new Error('Erro ao processar a sua procura. Por favor, preencha o campo de busca.')
+      }
+      const res = await this.musicController.getMusicsSearchBy(input, searchBy, all)
+      if (res.data.musics) {
+        return res.data.musics
+      }
+      throw new Error()
+    }catch (err){
+      if(err.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    throw new Error(searchBy.capitalize()+ ' not found')
   }
 
   getAlbums = async():Promise<Album[]>=>{
