@@ -15,7 +15,8 @@ const userBusiness = new UserBusiness()
 
 export const Signup = ()=>{
   const [form : UserSignup, setForm, clearForm] = useForm(initialForm)
-  const {toFeed, toLogin} = useCoordinator()
+  const {toFeed, toLogin, verifyLogin} = useCoordinator()
+  verifyLogin()
 
   const onSubmit = async(e)=>{
     e.preventDefault()

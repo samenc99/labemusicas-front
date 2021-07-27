@@ -17,6 +17,7 @@ const userBusiness = new UserBusiness()
 export const Login = ()=>{
   const [form : UserLogin, setForm] = useForm(initialForm);
   const {toHome, verifyLogin, toSignup} = useCoordinator()
+  verifyLogin()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
@@ -28,10 +29,6 @@ export const Login = ()=>{
       console.log(err)
     }
   }
-
-  useEffect(() => {
-    verifyLogin()
-  }, []);
 
   return(
     <All>
