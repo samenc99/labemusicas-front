@@ -26,7 +26,7 @@ export const Login = ()=>{
       window.localStorage.setItem('token', token)
       toHome()
     }catch (err){
-      console.log(err)
+      alert(err.message)
     }
   }
 

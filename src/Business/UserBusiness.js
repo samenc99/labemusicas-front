@@ -7,11 +7,15 @@ export class UserBusiness {
   userController = new UserController()
 
   login = async(login : UserLogin) : Promise<string>=>{
-    const res = await this.userController.login(login)
-    if(res.data.token){
+    try{
+      const res = await this.userController.login(login)
+      if(!res.data.token){
+        throw new Error()
+      }
       return res.data.token
+    }catch (err){
+      throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
     }
-    throw new Error('Token undefined')
   }
 
   signup = async(signup : UserSignup):Promise<string>=>{
