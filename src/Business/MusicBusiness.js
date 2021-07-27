@@ -86,11 +86,21 @@ export class MusicBusiness{
   }
 
   getAlbums = async():Promise<Album[]>=>{
-    const res = await this.musicController.getAlbums()
-    if(res.data.albums){
-      return res.data.albums
+    try{
+      const res = await this.musicController.getAlbums()
+      if(res.data.albums){
+        return res.data.albums
+      }
+      throw new Error()
+    }catch (err){
+      if(err.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    throw new Error('Albums not found.')
   }
 
   addMusic = async(form : MusicDTO):Promise<void>=>{
@@ -106,7 +116,7 @@ export class MusicBusiness{
         logout()
       }
       else{
-        throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+        throw new Error(err.response?.data?.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
       }
     }
   }

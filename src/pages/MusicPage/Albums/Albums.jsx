@@ -19,15 +19,15 @@ export const Albums = ()=>{
       const albums  = await musicBusiness.getAlbums()
       setAlbums(albums)
     }catch (err){
-      if(err.response.data.message!=='Albums not found'){
-        alert(err.response.data.message)
-      }
       setAlbums([])
+      if(err.message!=='Albums not found'){
+        alert(err.message)
+      }
     }
     setLoading(false)
   }
 
-  useEffect(getAlbums, [])
+  useEffect(()=>getAlbums(), [])
 
   const renderAlbums = ()=>{
     if(albums?.length===0){
