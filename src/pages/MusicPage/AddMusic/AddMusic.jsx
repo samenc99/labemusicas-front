@@ -36,7 +36,7 @@ export const AddMusic = ()=>{
           setLoading(false)
         }catch (err){
           setLoading(false)
-          alert(err.response?.data?.message || err.message)
+          alert(err.message)
         }
       }
     },1500)

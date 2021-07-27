@@ -94,11 +94,21 @@ export class MusicBusiness{
   }
 
   addMusic = async(form : MusicDTO):Promise<void>=>{
-    const newForm : MusicData = {
-      ...form,
-      genre : form.genre.split(',')
+    try{
+      const newForm : MusicData = {
+        ...form,
+        genre : form.genre.split(',')
+      }
+      await this.musicController.addMusic(newForm)
+    }catch (err){
+      if(err.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    await this.musicController.addMusic(newForm)
   }
 
 }
