@@ -14,21 +14,19 @@ const initialForm : UserSignup= {
 const userBusiness = new UserBusiness()
 
 export const Signup = ()=>{
-  const [form : UserSignup, setForm, clearForm] = useForm(initialForm)
-  const {toFeed, toLogin, verifyLogin} = useCoordinator()
+  const [form : UserSignup, setForm] = useForm(initialForm)
+  const {toHome, toLogin, verifyLogin} = useCoordinator()
   verifyLogin()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
     try {
-      const token : string = await userBusiness.signup(form)
+      const token = await userBusiness.signup(form)
       window.localStorage.setItem('token', token)
-      toFeed()
-      clearForm()
+      toHome()
     }catch (err){
-      alert(err.response?.data?.message)
+      alert(err.message)
     }
-
   }
 
   useEffect(() => {

@@ -14,10 +14,18 @@ export class UserBusiness {
     throw new Error('Token undefined')
   }
 
-  signup = (signup : UserSignup)=>{
-    if(!validateEmail(signup.email)){
-      throw new Error('email')
+  signup = async(signup : UserSignup):Promise<string>=>{
+    try{
+      if(!validateEmail(signup.email)){
+        throw new Error('email')
+      }
+      const res = await this.userController.signup(signup)
+      if(!res.data.token){
+        throw new Error()
+      }
+      return res.data.token
+    }catch (err){
+      throw new Error(err.response?.data?.message || err.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
     }
-    return this.userController.signup(signup)
   }
 }
