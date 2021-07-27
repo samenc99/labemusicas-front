@@ -36,11 +36,21 @@ export class MusicBusiness{
   }
 
   getMusicAllUsers = async(id: string):Promise<Music>=>{
-    const res = await this.musicController.getMusicAllUsers(id)
-    if(res.data.music){
-      return res.data.music
+    try{
+      const res = await this.musicController.getMusicAllUsers(id)
+      if(res.data.music){
+        return res.data.music
+      }
+      throw new Error()
+    }catch (err){
+      if(err.response?.data?.message?.includes('Token')){
+        alert(err.response.data.message)
+        logout()
+      }
+      else{
+        throw new Error(err.response?.data?.message || 'Estamos com problemas internos. Por favor tente novamente mais tarde.')
+      }
     }
-    throw new Error('Music not found')
   }
 
   getMusicsSearch = async(input : string, all?: boolean):Promise<ShortMusic[]>=>{

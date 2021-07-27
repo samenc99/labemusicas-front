@@ -27,7 +27,7 @@ export const Play = ()=>{
       const music = await musicBusiness.getMusicAllUsers(currentMusicId)
       setCurrentMusic(music)
     }catch (err){
-      console.log(err)
+      alert(err.message)
     }
   }
 
