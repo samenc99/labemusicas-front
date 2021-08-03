@@ -1,12 +1,13 @@
 import {Input} from "../components/Input";
-import {Container, Form} from "./styled";
+import {Container, Form, ModalLoading} from "./styled";
 import {All} from "../components/All";
 import {Button, ButtonOutlined} from "../components/Button";
 import useForm from "../../hooks/useForm";
 import {UserBusiness} from "../../Business/UserBusiness";
 import type {UserSignup} from "../../model/User";
 import {useCoordinator} from "../../hooks/useCoordinator";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import {Loading} from "../components/Loading";
 
 const initialForm : UserSignup= {
   name:'', nickname:'', email: '', password: ''
@@ -16,15 +17,18 @@ const userBusiness = new UserBusiness()
 export const Signup = ()=>{
   const [form : UserSignup, setForm] = useForm(initialForm)
   const {toHome, toLogin, verifyLogin} = useCoordinator()
+  const [loading, setLoading] = useState(false);
   verifyLogin()
 
   const onSubmit = async(e)=>{
     e.preventDefault()
+    setLoading(true)
     try {
       const token = await userBusiness.signup(form)
       window.localStorage.setItem('token', token)
       toHome()
     }catch (err){
+      setLoading(false)
       alert(err.message)
     }
   }
@@ -73,6 +77,10 @@ export const Signup = ()=>{
           </Form>
           <ButtonOutlined onClick={toLogin}>Voltar</ButtonOutlined>
         </Container>
+        {
+          loading &&
+          <ModalLoading><Loading/></ModalLoading>
+        }
       </All>
   )
 }

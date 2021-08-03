@@ -43,3 +43,16 @@ export const MyTitleIcon = styled(MusicVideoIcon)`
   width: 100px;
   height: 100px;
 `
+
+export const ModalLoading = styled.div`
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
