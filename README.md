@@ -1,12 +1,12 @@
 
-# Rappi4
+# Labemusica
 
 ![labemusica](https://i.ibb.co/X5SFkbx/labemusica.png)
 
 
 <br/>
 
-### Bem vindos!
+### Bem vindo!
 
 Projeto Labemusica inspirado no [Spotify](https://open.spotify.com/), sendo de design livre a cargo do desenvolvedor.
 
